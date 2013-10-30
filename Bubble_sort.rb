@@ -26,6 +26,7 @@ def bubble_sort(array)
   end
   array
 end
+
 array = []
 print "Array size: "
 arraySize=gets.chomp
