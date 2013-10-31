@@ -1,28 +1,14 @@
-########   #######  #### ##       ######## ########  
-##     ## ##     ##  ##  ##       ##       ##     ## 
-##     ## ##     ##  ##  ##       ##       ##     ## 
-########  ##     ##  ##  ##       ######   ########  
-##     ## ##     ##  ##  ##       ##       ##   ##   
-##     ## ##     ##  ##  ##       ##       ##    ##  
-########   #######  #### ######## ######## ##     ## 
-
- ######  ##          ###     ######   ######  
-##    ## ##         ## ##   ##    ## ##    ## 
-##       ##        ##   ##  ##       ##       
-##       ##       ##     ##  ######   ######  
-##       ##       #########       ##       ## 
-##    ## ##       ##     ## ##    ## ##    ## 
- ######  ######## ##     ##  ######   ######  
-
 class Boiler
   attr_accessor :array
 
-  def initialize(array=[],sorted=false)
+  def initialize(array=[])
     if array.kind_of?(Array)==true
       @array = array
-      @sorted = sorted
+      @sorted = false
     else
       puts "It`s not an array! Think twice before create object again."
+      @array = []
+      @sorted = false
     end
   end
 
@@ -42,21 +28,6 @@ class Boiler
   end
 end
 
-########     ###    ##    ## ########   #######  ##     ## 
-##     ##   ## ##   ###   ## ##     ## ##     ## ###   ### 
-##     ##  ##   ##  ####  ## ##     ## ##     ## #### #### 
-########  ##     ## ## ## ## ##     ## ##     ## ## ### ## 
-##   ##   ######### ##  #### ##     ## ##     ## ##     ## 
-##    ##  ##     ## ##   ### ##     ## ##     ## ##     ## 
-##     ## ##     ## ##    ## ########   #######  ##     ## 
-
-######## #### ##       ##       
-##        ##  ##       ##       
-##        ##  ##       ##       
-######    ##  ##       ##       
-##        ##  ##       ##       
-##        ##  ##       ##       
-##       #### ######## ######## 
 
 def random_fill(array)
   print "Enter the array size: "
@@ -84,18 +55,10 @@ def random_fill(array)
   rightBorder=rightBorder.to_i
 
   arraySize.times do
-    array.push rand(leftBorder..rightBorder)
+    array << rand(leftBorder..rightBorder)
   end
   array
-end
-
-######## ########  ######  ########  ######  
-   ##    ##       ##    ##    ##    ##    ## 
-   ##    ##       ##          ##    ##       
-   ##    ######    ######     ##     ######  
-   ##    ##             ##    ##          ## 
-   ##    ##       ##    ##    ##    ##    ## 
-   ##    ########  ######     ##     ######  
+end 
 
 array = []
 array = random_fill(array)
