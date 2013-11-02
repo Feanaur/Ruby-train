@@ -1,3 +1,5 @@
+require "./Input_filters.rb"
+
 class Boiler
   attr_accessor :array
 
@@ -31,29 +33,15 @@ end
 
 
 def random_fill(array)
+  #include Input_filters
   print "Enter the array size: "
-  arraySize=gets.chomp
-  while arraySize!=arraySize.to_i.to_s do
-    print "\nWrong input. Please try again: "
-    arraySize=gets.chomp
-  end 
-  arraySize=arraySize.to_i
+  arraySize=integer_input.call
 
   print "\nEnter the borders of random range:\nfrom:"
-  leftBorder=gets.chomp
-  while leftBorder!=leftBorder.to_i.to_s do
-    print "\nWrong input. Please try again: "
-    leftBorder=gets.chomp
-  end 
-  leftBorder=leftBorder.to_i
+  leftBorder=integer_input.call
 
   print "\nto: "
-  rightBorder=gets.chomp
-  while rightBorder!=rightBorder.to_i.to_s do
-    print "\nWrong input. Please try again: "
-    rightBorder=gets.chomp
-  end 
-  rightBorder=rightBorder.to_i
+  rightBorder=integer_input.call
 
   arraySize.times do
     array << rand(leftBorder..rightBorder)
