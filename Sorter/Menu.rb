@@ -16,8 +16,7 @@ while true do
     delete_hash_elem(array)
   when "3"
       cars = Sorter.new(array)
-      cars = cars.sort_by_title
-      array = cars.hashArray
+      cars = cars.send("sort_by_title")
   when "4"
     puts array
   else

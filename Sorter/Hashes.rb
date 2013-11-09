@@ -47,7 +47,7 @@ def delete_hash_elem(array)
   if index<0 && index>array.length-1
     puts "Wrong index entered. Nothing to change."
   else
-  array.delete_at(index)
+  array.delete_at(index-1)
   end
   array
 end
