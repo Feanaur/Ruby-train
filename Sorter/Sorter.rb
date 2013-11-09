@@ -6,8 +6,7 @@ class Sorter
   end
 
 
-  def missing_method(method_name)
-    #name = method_name.to_s   
+  def method_missing(method_name)
 
     if method_name.index('sort_by_')==0
       key_string=method_name[8..-1]
@@ -22,7 +21,7 @@ class Sorter
         end
       end
 
-      if is_a_good_key do
+      if is_a_good_key
 
         @hashArray = @hashArray.sort_by { |hash| hash[key_string.to_sym] }
         @hashArray = @hashArray.reverse
@@ -34,7 +33,9 @@ class Sorter
       end
 
     else
+
       puts "Error. This method doesn`t exist."
+
     end
 
   end
