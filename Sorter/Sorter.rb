@@ -23,9 +23,8 @@ class Sorter
         end
 
       if is_a_good_key do
-
-        ## Здесь будет сортировка по ключевому значению из key_string, 
-        ## хотя как её реализовывать я пока понятия не имею...
+        @hashArray = @hashArray.sort_by { |hash| hash[key_string.to_sym] }
+        @hashArray = @hashArray.reverse
       else
         puts "Wrong key to sort"
       end
