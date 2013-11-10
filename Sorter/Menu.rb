@@ -1,5 +1,6 @@
 require "./Hashes.rb"
 require "./Sorter.rb"
+triple_enter = -> { puts "\n\n\n"}
 
 array = []
 while true do
@@ -12,14 +13,26 @@ while true do
   case choice
   when "1"
     add_hash_elem(array)
+    triple_enter.call
   when "2"
     delete_hash_elem(array)
+    triple_enter.call
   when "3"
+    if array.any?
       cars = Sorter.new(array)
-      cars = cars.send("sort_by_title")
+      print "\nEnter the key by which you want to sort: "
+      key_to_sort = gets.chomp
+      cars.send("sort_by_"+key_to_sort)
+      array = cars.hashes
+    else
+      puts "\nAdd something to array before you start sorting"
+    end
+    triple_enter.call
   when "4"
     puts array
+    triple_enter.call
   else
-    puts "This part of menu doesn`t exist. Try again.\n\n\n"
+    puts "This part of menu doesn`t exist. Try again."
+    triple_enter.call
   end
 end
