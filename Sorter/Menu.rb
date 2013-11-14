@@ -1,5 +1,6 @@
 require "./Hashes.rb"
 require "./Sorter.rb"
+include Hash_Module
 triple_enter = -> { puts "\n\n\n"}
 
 array = []
@@ -12,10 +13,10 @@ while true do
   choice = gets.chomp
   case choice
   when "1"
-    add_hash_elem(array)
+    Hash_Module.add_hash_elem(array)
     triple_enter.call
   when "2"
-    delete_hash_elem(array)
+    Hash_Module.delete_hash_elem(array)
     triple_enter.call
   when "3"
     if array.any?

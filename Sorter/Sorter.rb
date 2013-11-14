@@ -10,17 +10,10 @@ class Sorter
     method_name_str=method_name.to_s
     key_string=method_name_str[8..-1]
 
-    is_a_good_key = lambda do
-      @hashes[0].each_key do |key|
-        if key.to_s==key_string 
-          return true
-        end
-      end
-      return false
-    end
-
-    if is_a_good_key.call
-      @hashes = @hashes.sort_by { |hash| hash[key_string.to_sym] }
+    if @hashes[0].has_key?(key_string.to_sym)
+      #define_method(method_name_str) do
+        @hashes = @hashes.sort_by { |hash| hash[key_string.to_sym] }
+      #end
     else
       puts "Wrong key to sort"
     end
