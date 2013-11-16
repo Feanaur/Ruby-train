@@ -14,17 +14,19 @@ end
 
 post '/result' do
   if params[:dimension] == params[:dimension].to_i.to_s || params[:dimension].to_s == ""
-    passString = 'pwgen'
+    passString = 'pwgen '
     passLength = params[:dimension]
     checkboxes = params['check']
-    unless checkboxes.any?
-    checkboxes.each do |n|
-      if n=="1" then passString+=' -c ' end
-      if n=="2" then passString+=' -n ' end
-      if n=="3" then passString+=' -B ' end
+    if checkboxes.kind_of?(Array)
+      checkboxes.each do |n|
+        if n=="1" then passString+=' -c ' end
+        if n=="2" then passString+=' -n ' end
+        if n=="3" then passString+=' -B ' end
+      end
     end
     passString+=passLength.to_s+" 1"
-    system(passString)
+    result = `#{passString}`
+    p "Here is your password: "+result
   else
     p "Length value is incorrect. Go back and rewrite it."
   end
